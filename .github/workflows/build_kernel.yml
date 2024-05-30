@@ -12,6 +12,9 @@ on:
       branch:
           description: 'Kernel source branch'
           required: true
+      DEFCONFIG:
+          description: 'Kernel DEFCONFIG'
+          required: true
       token:
           description: 'Telegram bot token'
           required: true
@@ -25,6 +28,7 @@ env:
   DEVICE: ${{ github.event.inputs.device }}
   REPO: ${{ github.event.inputs.repo }}
   BRANCH: ${{ github.event.inputs.branch }}
+  DEFCONFIG: ${{ github.event.inputs.DEFCONFIG }}
   GKI: ${{ github.event.inputs.gki }}
   token: ${{ github.event.inputs.token }}
   chat_id: ${{ github.event.inputs.chat_id }}
