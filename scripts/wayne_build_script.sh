@@ -65,7 +65,7 @@ tgs() {
 # Send Build Info
 sendinfo() {
     tg "
-• sirCompiler Action •
+• Github Action Compiler •
 *Building on*: \`Github actions\`
 *Date*: \`${DATE}\`
 *Device*: \`${DEVICE} (${CODENAME})\`
@@ -116,7 +116,7 @@ compile() {
         exit 1
     fi
 
-    git clone --depth=1 https://github.com/sirnewbies/Anykernel3.git AnyKernel -b tissot
+    git clone --depth=1 https://github.com/Ariden24/AnyKernel3.git AnyKernel -b master
     cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 }
 # Zipping
