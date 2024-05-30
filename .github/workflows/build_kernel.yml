@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       device:
-          description: 'device codename (e.g topaz/tissot)'
+          description: 'device codename (e.g wayne)'
           required: true
       repo:
           description: 'Kernel source link (dont include . git at the end)'
@@ -36,8 +36,8 @@ jobs:
     steps:
       - name: Initializing environment
         run: |
-          git config --global user.name "sirnewbies"
-          git config --global user.email "yusromi04@gmail.com"
+          git config --global user.name "ariden"
+          git config --global user.email "debbyariansyah24@gmail.com"
           df -h
           ld --version
           gcc -v
@@ -48,18 +48,9 @@ jobs:
 
       - name: Compiling
         run: |
-          if [ "${DEVICE}" = "tissot" ]; then
-            wget https://raw.githubusercontent.com/sirnewbies/kernel_build_action/main/scripts/tissot_build_script.sh
-            bash tissot_build_script.sh
-          elif [ "${DEVICE}" = "tissot-mainline" ]; then
-            wget https://raw.githubusercontent.com/sirnewbies/kernel_build_action/main/scripts/tissot-mainline_build_script.sh
-            bash tissot-mainline_build_script.sh
-          elif [ "${DEVICE}" = "topaz" ]; then 
-            wget https://raw.githubusercontent.com/sirnewbies/kernel_build_action/main/scripts/topaz_build_script.sh
-            bash topaz_build_script.sh
-          elif [ "${DEVICE}" = "sweet" ]; then
-            wget https://raw.githubusercontent.com/sirnewbies/kernel_build_action/main/scripts/sweet_build_script.sh
-            bash sweet_build_script.sh
+          if [ "${DEVICE}" = "wayne" ]; then
+            wget https://raw.githubusercontent.com/Ariden24/kernel_build_action/main/scripts/wayne_build_script.sh
+            bash wayne_build_script.sh
           else
             echo "Device not supported yet"
           fi
