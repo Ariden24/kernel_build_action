@@ -34,7 +34,7 @@ DEVICE="Xiaomi Mi 6X"
 export DEVICE
 CODENAME="wayne"
 export CODENAME
-DEFCONFIG="vendor/wayne-oss-perf_defconfig"
+#DEFCONFIG="vendor/wayne-oss-perf_defconfig"
 export DEFCONFIG
 COMMIT_HASH=$(git rev-parse --short HEAD)
 export COMMIT_HASH
