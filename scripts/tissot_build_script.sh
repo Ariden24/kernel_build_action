@@ -10,7 +10,7 @@ clang() {
     echo "Cloning clang"
     if [ ! -d "clang" ]; then
         git clone https://gitlab.com/LeCmnGend/proton-clang -b clang-15 --depth=1 clang
-        KBUILD_COMPILER_STRING="Proton clang 15.0 x sirnewbies"
+        KBUILD_COMPILER_STRING="Proton clang 15.0"
         PATH="${PWD}/clang/bin:${PATH}"
     fi
     sudo apt install -y ccache
@@ -26,15 +26,15 @@ export CACHE
 export KBUILD_COMPILER_STRING
 ARCH=arm64
 export ARCH
-KBUILD_BUILD_HOST="sirnewbies"
+KBUILD_BUILD_HOST="ariden"
 export KBUILD_BUILD_HOST
-KBUILD_BUILD_USER="noob-server"
+KBUILD_BUILD_USER="any-server"
 export KBUILD_BUILD_USER
-DEVICE="Xiaomi Mi A1"
+DEVICE="Xiaomi Mi 6X"
 export DEVICE
-CODENAME="tissot"
+CODENAME="wayne"
 export CODENAME
-DEFCONFIG="tissot_defconfig"
+DEFCONFIG="wayne_defconfig"
 export DEFCONFIG
 COMMIT_HASH=$(git rev-parse --short HEAD)
 export COMMIT_HASH
