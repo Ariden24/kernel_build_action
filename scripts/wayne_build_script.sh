@@ -5,8 +5,6 @@ rm -rf kernel
 git clone $REPO -b $BRANCH kernel 
 cd kernel
 
-#KernelSU
-
 clang() {
     rm -rf clang
     echo "Cloning clang"
@@ -94,24 +92,6 @@ finderr() {
         -d text="Build throw an error(s)"
     error_sticker
     exit 1
-}
-
-# KernelSu
-KernelSU() {
-      b   if [ -d "./KernelSU" ]; then
-            rm -rf "./KernelSU"
-          fi
-          if [ -d "./drivers/kernelsu" ]; then
-            rm -rf "./drivers/kernelsu"
-          fi
-
-          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.4
-
-          echo -e "CONFIG_KPROBES=y" >> arch/${ARCH}/configs/${DEFCONFIG}
-          echo -e "CONFIG_HAVE_KPROBES=y" >> arch/${ARCH}/configs/${DEFCONFIG}
-          echo -e "CONFIG_KPROBE_EVENTS=y" >> arch/${ARCH}/configs/${DEFCONFIG}
-
-          cat arch/${ARCH}/configs/${DEFCONFIG}
 }
 
 # Compile
