@@ -94,6 +94,24 @@ finderr() {
     exit 1
 }
 
+# KernelSu
+KernelSU() {
+    if [ -d "./KernelSU" ]; then
+            rm -rf "./KernelSU"
+          fi
+          if [ -d "./drivers/kernelsu" ]; then
+            rm -rf "./drivers/kernelsu"
+          fi
+
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.4
+
+          echo -e "CONFIG_KPROBES=y" >> arch/${{ ARCH }}/configs/${{ DEFCONFIG }}
+          echo -e "CONFIG_HAVE_KPROBES=y" >> arch/${{ ARCH }}/configs/${{ DEFCONFIG }}
+          echo -e "CONFIG_KPROBE_EVENTS=y" >> arch/${{ ARCH }}/configs/${{ DEFCONFIG }}
+
+          cat arch/${{ ARCH }}/configs/${{ DEFCONFIG }}
+}
+
 # Compile
 compile() {
 
@@ -102,7 +120,8 @@ compile() {
     fi
 
     ./update_ksu.sh
-
+    KernelSU
+    
     make O=out ARCH="${ARCH}" "${DEFCONFIG}"
     make -j"${PROCS}" O=out \
         ARCH=$ARCH \
