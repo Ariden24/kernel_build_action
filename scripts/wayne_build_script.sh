@@ -5,6 +5,8 @@ rm -rf kernel
 git clone $REPO -b $BRANCH kernel 
 cd kernel
 
+#KernelSU
+
 clang() {
     rm -rf clang
     echo "Cloning clang"
@@ -96,7 +98,7 @@ finderr() {
 
 # KernelSu
 KernelSU() {
-    if [ -d "./KernelSU" ]; then
+      b   if [ -d "./KernelSU" ]; then
             rm -rf "./KernelSU"
           fi
           if [ -d "./drivers/kernelsu" ]; then
@@ -120,7 +122,6 @@ compile() {
     fi
 
     ./update_ksu.sh
-    KernelSU
     
     make O=out ARCH="${ARCH}" "${DEFCONFIG}"
     make -j"${PROCS}" O=out \
