@@ -1,11 +1,8 @@
-name: Build Kernel
+name: Build Kernel KSU wayne
 
 on:
   workflow_dispatch:
     inputs:
-      device:
-          description: 'device codename (e.g wayne)'
-          required: true
       repo:
           description: 'Kernel source link (dont include . git at the end)'
           required: true
@@ -25,7 +22,7 @@ on:
 
 env:
   TZ: Asia/Jakarta
-  DEVICE: ${{ github.event.inputs.device }}
+  DEVICE: wayne
   REPO: ${{ github.event.inputs.repo }}
   BRANCH: ${{ github.event.inputs.branch }}
   DEFCONFIG: ${{ github.event.inputs.DEFCONFIG }}
@@ -52,11 +49,6 @@ jobs:
 
       - name: Compiling
         run: |
-          if [ "${DEVICE}" = "wayne" ]; then
-            wget https://raw.githubusercontent.com/Ariden24/kernel_build_action/main/scripts/wayne_build_script.sh
-            bash wayne_build_script.sh
-          else
-            echo "Device not supported yet"
-          fi
+          bash wayne_ksu_build_script.sh
 
 
