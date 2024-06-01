@@ -49,6 +49,6 @@ jobs:
 
       - name: Compiling
         run: |
-          bash wayne_ksu_build_script.sh
+          bash wayne_ksu_build.sh
 
 
