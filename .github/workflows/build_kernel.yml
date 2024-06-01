@@ -49,6 +49,6 @@ jobs:
 
       - name: Compiling
         run: |
-          bash wayne_build.sh
+          bash wayne_build_script.sh
 
 
