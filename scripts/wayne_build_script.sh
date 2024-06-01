@@ -120,7 +120,7 @@ compile() {
 # Zipping
 zipping() {
     cd AnyKernel || exit 1
-    zip -r9 Another-Kernel-"${BRANCH}"-"${CODENAME}"-"${DATE}".zip ./*
+    zip -r9 "${BRANCH}"-"${CODENAME}"-"${DATE}".zip ./*
     cd ..
 }
 
