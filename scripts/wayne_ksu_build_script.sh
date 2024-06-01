@@ -5,8 +5,6 @@ rm -rf kernel
 git clone $REPO -b $BRANCH kernel 
 cd kernel
 
-ksu
-
 clang() {
     rm -rf clang
     echo "Cloning clang"
@@ -136,7 +134,7 @@ zipping() {
     zip -r9 "${BRANCH}"-"${CODENAME}"-"${DATE}".zip ./*
     cd ..
 }
-
+ksu
 clang
 sendinfo
 compile
