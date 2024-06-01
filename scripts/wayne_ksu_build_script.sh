@@ -5,6 +5,8 @@ rm -rf kernel
 git clone $REPO -b $BRANCH kernel 
 cd kernel
 
+ksu
+
 clang() {
     rm -rf clang
     echo "Cloning clang"
@@ -111,8 +113,6 @@ compile() {
     if [ -d "out" ]; then
         rm -rf out && mkdir -p out
     fi
-
-    ksu
 
     make O=out ARCH="${ARCH}" "${DEFCONFIG}"
     make -j"${PROCS}" O=out \
