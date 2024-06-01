@@ -49,7 +49,7 @@ jobs:
 
       - name: Compiling
         run: |
-            wget https://raw.githubusercontent.com/sirnewbies/kernel_build_action/main/scripts/wayne_build_script.sh
+            wget https://raw.githubusercontent.com/Ariden24/kernel_build_action/main/scripts/wayne_build_script.sh
             bash wayne_build_script.sh
 
 
